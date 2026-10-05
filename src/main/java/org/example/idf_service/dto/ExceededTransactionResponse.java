@@ -1,0 +1,2 @@
+package org.example.idf_service.dto; import org.example.idf_service.domain.ExpenseCategory; import java.math.BigDecimal; import java.time.OffsetDateTime;
+public record ExceededTransactionResponse(String account_from,String account_to,String currency_shortname,BigDecimal sum,ExpenseCategory expense_category,OffsetDateTime datetime,BigDecimal limit_sum,OffsetDateTime limit_datetime,String limit_currency_shortname) {}

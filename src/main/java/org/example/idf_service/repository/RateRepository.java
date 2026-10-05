@@ -1,0 +1,2 @@
+package org.example.idf_service.repository; import org.example.idf_service.domain.ExchangeRate; import org.springframework.data.jpa.repository.JpaRepository; import java.time.LocalDate; import java.util.*;
+public interface RateRepository extends JpaRepository<ExchangeRate,Long> { Optional<ExchangeRate> findFirstByCurrencyAndRateDateLessThanEqualOrderByRateDateDesc(String currency, LocalDate date); }

@@ -1,0 +1,4 @@
+# Context7 provides current, read-only framework documentation to Codex.
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]

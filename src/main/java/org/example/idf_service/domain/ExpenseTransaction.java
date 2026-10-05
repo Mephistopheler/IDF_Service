@@ -1,0 +1,7 @@
+package org.example.idf_service.domain;
+import jakarta.persistence.*; import java.math.BigDecimal; import java.time.OffsetDateTime;
+@Entity @Table(name="expense_transactions") public class ExpenseTransaction {
+ @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private Long id; @Column(name="account_from") private String accountFrom; @Column(name="account_to") private String accountTo; private String currency; private BigDecimal amount; @Enumerated(EnumType.STRING) private ExpenseCategory category; @Column(name="occurred_at") private OffsetDateTime occurredAt; @Column(name="amount_usd") private BigDecimal amountUsd; @Column(name="limit_exceeded") private boolean limitExceeded; @ManyToOne(fetch=FetchType.LAZY) @JoinColumn(name="limit_id") private ExpenseLimit limit;
+ protected ExpenseTransaction(){} public ExpenseTransaction(String a,String b,String c,BigDecimal amount,ExpenseCategory cat,OffsetDateTime at,BigDecimal usd,boolean exceeded,ExpenseLimit limit){accountFrom=a;accountTo=b;currency=c;this.amount=amount;category=cat;occurredAt=at;amountUsd=usd;limitExceeded=exceeded;this.limit=limit;}
+ public Long getId(){return id;} public String getAccountFrom(){return accountFrom;} public String getAccountTo(){return accountTo;} public String getCurrency(){return currency;} public BigDecimal getAmount(){return amount;} public ExpenseCategory getCategory(){return category;} public OffsetDateTime getOccurredAt(){return occurredAt;} public boolean isLimitExceeded(){return limitExceeded;} public ExpenseLimit getLimit(){return limit;}
+}

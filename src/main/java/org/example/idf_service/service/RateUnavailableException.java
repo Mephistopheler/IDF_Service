@@ -1,0 +1,1 @@
+package org.example.idf_service.service; import java.time.LocalDate; public class RateUnavailableException extends RuntimeException { public RateUnavailableException(String currency, LocalDate date, Throwable cause){super("No cached or remote USD rate for "+currency+" on "+date,cause);} }
