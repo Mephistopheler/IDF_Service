@@ -1,0 +1,3 @@
+package org.example.idf_service.domain;
+import jakarta.persistence.*; import java.math.BigDecimal; import java.time.LocalDate;
+@Entity @Table(name="exchange_rates") public class ExchangeRate { @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private Long id; private String currency; @Column(name="rate_date") private LocalDate rateDate; @Column(name="usd_rate") private BigDecimal usdRate; private String source; protected ExchangeRate(){} public ExchangeRate(String c,LocalDate d,BigDecimal r,String s){currency=c;rateDate=d;usdRate=r;source=s;} public BigDecimal getUsdRate(){return usdRate;} }

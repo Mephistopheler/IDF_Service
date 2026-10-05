@@ -1,0 +1,3 @@
+package org.example.idf_service.config;
+import org.springframework.context.annotation.*; import org.springframework.http.client.SimpleClientHttpRequestFactory; import org.springframework.web.client.RestClient; import java.time.*;
+@Configuration public class ApplicationConfig { @Bean Clock clock(){return Clock.systemUTC();} @Bean RestClient ratesRestClient(RatesProperties p){SimpleClientHttpRequestFactory f=new SimpleClientHttpRequestFactory(); f.setConnectTimeout(p.connectTimeout()); f.setReadTimeout(p.readTimeout()); return RestClient.builder().baseUrl(p.baseUrl()).requestFactory(f).build();} }
